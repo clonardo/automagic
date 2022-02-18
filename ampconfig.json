@@ -1,0 +1,19 @@
+{
+  "dataServiceGeneratorVersion": "0.11.2",
+  "appInfo": {
+    "name": "Automagic",
+    "description": "Just screwing around with Amplication",
+    "version": "h9upvl7p",
+    "id": "ckzrxrscf28256901s6ih9jqheo",
+    "url": "https://app.amplication.com/ckzrxrscf28256901s6ih9jqheo",
+    "settings": {
+      "dbHost": "localhost",
+      "dbName": "automagic_db",
+      "dbPassword": "admin",
+      "dbPort": 5432,
+      "dbUser": "admin",
+      "appId": "ckzrxrscf28256901s6ih9jqheo",
+      "authProvider": "Jwt"
+    }
+  }
+}
