@@ -12,6 +12,7 @@ import {
 } from "react-admin";
 
 import { USER_TITLE_FIELD } from "./UserTitle";
+import { PROJECT_TITLE_FIELD } from "../project/ProjectTitle";
 
 export const UserShow = (props: ShowProps): React.ReactElement => {
   return (
@@ -35,6 +36,25 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <TextField label="Name" source="name" />
             <TextField label="Start Date" source="startDate" />
+            <DateField source="updatedAt" label="Updated At" />
+            <ReferenceField label="User" source="user.id" reference="User">
+              <TextField source={USER_TITLE_FIELD} />
+            </ReferenceField>
+          </Datagrid>
+        </ReferenceManyField>
+        <ReferenceManyField reference="Task" target="UserId" label="Tasks">
+          <Datagrid rowClick="show">
+            <DateField source="createdAt" label="Created At" />
+            <TextField label="Estimation" source="estimation" />
+            <TextField label="ID" source="id" />
+            <ReferenceField
+              label="Project"
+              source="project.id"
+              reference="Project"
+            >
+              <TextField source={PROJECT_TITLE_FIELD} />
+            </ReferenceField>
+            <TextField label="Title" source="title" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField label="User" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />

@@ -6,10 +6,13 @@ import {
   EditProps,
   TextInput,
   DateTimeInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
   ReferenceInput,
   SelectInput,
 } from "react-admin";
 
+import { TaskTitle } from "../task/TaskTitle";
 import { UserTitle } from "../user/UserTitle";
 
 export const ProjectEdit = (props: EditProps): React.ReactElement => {
@@ -19,6 +22,14 @@ export const ProjectEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="Description" multiline source="description" />
         <TextInput label="Name" source="name" />
         <DateTimeInput label="Start Date" source="startDate" />
+        <ReferenceArrayInput
+          source="tasks"
+          reference="Task"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={TaskTitle} />
+        </ReferenceArrayInput>
         <ReferenceInput source="user.id" reference="User" label="User">
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
