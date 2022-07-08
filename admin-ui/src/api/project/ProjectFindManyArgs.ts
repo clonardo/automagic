@@ -3,7 +3,7 @@ import { ProjectOrderByInput } from "./ProjectOrderByInput";
 
 export type ProjectFindManyArgs = {
   where?: ProjectWhereInput;
-  orderBy?: ProjectOrderByInput;
+  orderBy?: Array<ProjectOrderByInput>;
   skip?: number;
   take?: number;
 };
